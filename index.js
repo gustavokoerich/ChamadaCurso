@@ -2,14 +2,14 @@ require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser')
+const cors = require('cors')
 const app = express();
 
 app.set('view engine', 'ejs')
 app.use(cookieParser())
+app.use(cors())
 
 // Ler o JSON
-
-app.use(express.static(__dirname + '/public'))
 
 app.use(
     express.urlencoded({
