@@ -1,0 +1,47 @@
+<style>
+            .menu-bar {
+          background: linear-gradient(to right, #0d89fd, #00b0d8); border-color: #00b0d8;
+          display: flex;
+          justify-content: space-between;
+          box-sizing: border-box;
+          padding: 0.3%;
+        }
+
+        .group {
+          margin-left: 6%;
+          margin-right: 6%;
+        }
+
+        .item, .title {
+          display: block;
+          color: white;
+          font-size: 18px;
+          display: inline-block;
+          box-sizing: border-box;
+          padding: 14px 20px;
+          text-decoration: none;
+          transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+          cursor: pointer;
+        }
+
+        .item:hover {
+          transform: scale(1.05, 1.05);
+          color:white;
+          letter-spacing: 0.9px;
+        }
+
+        .title, .title:hover {
+          font-weight: 600;
+          color: white;
+        }
+
+</style>
+<nav class="menu-bar">
+    <div class="group">
+      <a class="title">Chamada</a>
+    </div>
+    <div class="group">
+      <a class="item" href="/aluno/cadastro">Cadastrar Aluno</a>
+      <a class="item" href="/auth/logout">Logout</a>
+    </div>
+  </nav>
