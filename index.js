@@ -49,6 +49,6 @@ mongoose.connect(
 
 // RUN    
 
-app.listen(process.env.PORT, 3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log(`Servidor está rodando com a porta: 3000`)
 });

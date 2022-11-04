@@ -3,6 +3,7 @@ require('dotenv').config()
 const User = require('../../models/user');
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt');
+const { restart } = require('nodemon');
 
 // Parte de fazer o login do site!
 
@@ -45,22 +46,19 @@ router.post('/login', async (req, res) => {
 // Parte de fazer o cadastro do site!
 
 router.get('/register', async (req, res) => {
-    return res.render('register.ejs')
+    return res.redirect('/auth/login')
 });
 
 router.post('/register', async (req, res) => {
-    const {username, password, confirmpassword, code} = req.body
+    const {username, password, code} = req.body
+    console.log(username, password, code)
 
     if (code != '123'){
         return res.status(422).json( {msg: 'Código invalido, impossivel prosseguir!'} )
     }
 
-    if (!username || !password || !confirmpassword) {
+    if (!username || !password || !code) {
         return res.status(422).json( {msg: 'Todos os campos são obrigatorios!'} )
-    }
-
-    if (password != confirmpassword) {
-        return res.status(422).json( {msg: 'Senhas não conferem!'} )
     }
 
     const userExists = await User.findOne({ name: username })
@@ -80,7 +78,7 @@ router.post('/register', async (req, res) => {
 
     try{
         await user.save()
-        res.status(201).json({msg: 'Usuario criado com sucesso!'})
+        res.redirect('/auth/login')
     }catch(err){
         console.log(err)
         res.status(500).json({msg: 'Aconteceu um erro no servidor!'})

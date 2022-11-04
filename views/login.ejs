@@ -134,24 +134,20 @@ button[type="submit"] {
     </div>
 
     <form id="signin" method="POST">
-      <input type="text" placeholder="Username" name="username" required />
+      <input type="text" placeholder="Usuário" name="username" minlength="4" required />
       <i class="fas fa-user iEmail"></i>
-      <input type="password" placeholder="Password" name="password" required />
+      <input type="password" placeholder="Senha" name="password" minlength="7" required />
       <i class="fas fa-lock iPassword"></i>
       <button type="submit">Logar</button>
     </form>
 
-    <form id="signup" method="">
-      <input type="text" placeholder="Username" name="username" required />
+    <form id="signup" action="/auth/register" method="POST">
+      <input type="text" placeholder="Usuário" name="username" min="4" required />
       <i class="fas fa-user iEmail"></i>
-      <input type="password" placeholder="Password" name="password" required />
+      <input type="password" placeholder="Senha" name="password" minlength="7" required />
       <i class="fas fa-lock iPassword"></i>
-      <input type="password" placeholder="Password" name="confirmpassword" required />
+      <input type="password" placeholder="Código" name="code" required/>
       <i class="fas fa-lock iPassword2"></i>
-      <div class="divCheck">
-        <input type="checkbox" required />
-        <span>Terms</span>
-      </div>
       <button type="submit">Cadastrar</button>
     </form>
   </div>
